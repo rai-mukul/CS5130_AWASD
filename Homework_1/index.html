@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Form|Summmer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+  </head>
+  <body>
+    <div class="bg-white">
+      <div class="mx-auto">
+        <div
+          class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0"
+        >
+          <svg
+            viewBox="0 0 1024 1024"
+            class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+            aria-hidden="true"
+          >
+            <circle
+              cx="512"
+              cy="512"
+              r="512"
+              fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
+              fill-opacity="0.7"
+            />
+            <defs>
+              <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                <stop stop-color="#7775D6" />
+                <stop offset="1" stop-color="#E935C1" />
+              </radialGradient>
+            </defs>
+          </svg>
+          <div class="container mx-auto">
+            <div class="px-4 mt-10 sm:mx-auto sm:w-sm sm:max-w-xl">
+              <h1
+                class="text-3xl font-bold tracking-tight text-white sm:text-4xl py-10 text-center"
+              >
+                Summer Review Form
+              </h1>
+              <form
+                class="bg-white p-6 rounded shadow-md"
+                id="reviewForm"
+                action="#"
+                method="POST"
+              >
+                <div class="mb-4">
+                  <label for="name" class="block font-medium mb-1">Name<span class="text-red-500">*</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full border rounded py-2 px-3"
+                    required
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="email" class="block font-medium mb-1"
+                    >Email<span class="text-red-500">*</span></label
+                  >
+                  <input
+                  placeholder="Enter your email"
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full border rounded py-2 px-3"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="age" class="block font-medium mb-1">Age<span class="text-red-500">*</span></label>
+                  <input
+                    type="number"
+                    placeholder="Enter your age"
+                    id="age"
+                    name="age"
+                    class="w-full border rounded py-2 px-3"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label class="block font-medium mb-1">Favorite IDE<span class="text-red-500">*</span></label>
+                  <select
+                    id="favoriteIDE"
+                    class="w-full border rounded py-2 px-3"
+                    required
+                  >
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="vscode">Visual Studio Code</option>
+                    <option value="intellij">IntelliJ IDEA</option>
+                    <option value="eclipse">Eclipse</option>
+                    <option value="pycharm">PyCharm</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label class="block font-medium mb-1"
+                    >How was your summer?<span class="text-red-500">*</span></label
+                  >
+                  <div class="space-y-2">
+                    <label class="block">
+                      <input
+                        type="radio"
+                        name="summer_experience"
+                        value="fantastic"
+                        class="mr-2"
+                        required
+                      />
+                      Fantastic
+                    </label>
+                    <label class="block">
+                      <input
+                        type="radio"
+                        name="summer_experience"
+                        value="barely_survived"
+                        class="mr-2"
+                        required
+                      />
+                      Barely Survived
+                    </label>
+                    <label class="block">
+                      <input
+                        type="radio"
+                        name="summer_experience"
+                        value="cant_remember"
+                        class="mr-2"
+                        required
+                      />
+                      Can't Remember
+                    </label>
+                    <label class="block">
+                      <input
+                        type="radio"
+                        name="summer_experience"
+                        value="so_so"
+                        class="mr-2"
+                        required
+                      />
+                      So-So
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="block font-medium mb-1"
+                    >Languages and Frameworks known<span class="text-red-500">*</span></label
+                  >
+                  <div class="space-y-2">
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="c"
+                        class="mr-2"
+                      />
+                      C
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="cpp"
+                        class="mr-2"
+                      />
+                      C++
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="csharp"
+                        class="mr-2"
+                      />
+                      C#
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="java"
+                        class="mr-2"
+                      />
+                      Java
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="javascript"
+                        class="mr-2"
+                      />
+                      JavaScript
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="react"
+                        class="mr-2"
+                      />
+                      React
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="angular"
+                        class="mr-2"
+                      />
+                      Angular
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="django"
+                        class="mr-2"
+                      />
+                      Django
+                    </label>
+                    <label class="block">
+                      <input
+                        type="checkbox"
+                        name="languages_frameworks"
+                        value="spring"
+                        class="mr-2"
+                      />
+                      Spring
+                    </label>
+                  </div>
+                </div>
+                <!-- Button for form Submission -->
+                <button class="btn-grad" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal HTML start -->
+    <div
+      class="modal hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+      id="modal"
+    >
+      <div class="bg-white p-8 rounded shadow-md">
+        <h2 class="text-xl font-semibold mb-4">Review Form Submission</h2>
+        <p id="modalContent"></p>
+        <button class="btn-grad mt-4" id="closeModal">Close</button>
+      </div>
+    </div>
+<!-- Modal HTML end -->
+<!-- Modal javascript start -->
+    <script>
+      const form = document.getElementById("reviewForm");
+      const modal = document.getElementById("modal");
+      const modalContent = document.getElementById("modalContent");
+      const closeModal = document.getElementById("closeModal");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Collect form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const age = document.getElementById("age").value;
+        const favoriteIDE = document.getElementById("favoriteIDE").value; // Updated ID
+        const summerExperience = document.querySelector(
+          'input[name="summer_experience"]:checked'
+        ).value;
+        const languagesFrameworks = Array.from(
+          document.querySelectorAll(
+            'input[name="languages_frameworks"]:checked'
+          )
+        )
+          .map((input) => input.value)
+          .join(", ");
+
+        // Build modal content
+        const content = `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Age:</strong> ${age}</p>
+          <p><strong>Favorite IDE:</strong> ${favoriteIDE}</p>
+          <p><strong>Summer Experience:</strong> ${summerExperience}</p>
+          <p><strong>Languages and Frameworks:</strong> ${languagesFrameworks}</p>
+        `;
+
+        modalContent.innerHTML = content;
+        modal.classList.remove("hidden");
+      });
+
+      closeModal.addEventListener("click", function () {
+        modal.classList.add("hidden");
+      });
+    </script>
+    <!-- Modal javascript end -->
+  </body>
+</html>

@@ -37,7 +37,7 @@
               <h1
                 class="text-3xl font-bold tracking-tight text-white sm:text-4xl py-10 text-center"
               >
-                Summer Review Form
+                CS 5130 Survey Form
               </h1>
               <form
                 class="bg-white p-6 rounded shadow-md"
@@ -46,7 +46,9 @@
                 method="POST"
               >
                 <div class="mb-4">
-                  <label for="name" class="block font-medium mb-1">Name<span class="text-red-500">*</span></label>
+                  <label for="name" class="block font-medium mb-1"
+                    >Name<span class="text-red-500">*</span></label
+                  >
                   <input
                     type="text"
                     id="name"
@@ -61,7 +63,7 @@
                     >Email<span class="text-red-500">*</span></label
                   >
                   <input
-                  placeholder="Enter your email"
+                    placeholder="Enter your email"
                     type="email"
                     id="email"
                     name="email"
@@ -70,7 +72,9 @@
                   />
                 </div>
                 <div class="mb-4">
-                  <label for="age" class="block font-medium mb-1">Age<span class="text-red-500">*</span></label>
+                  <label for="age" class="block font-medium mb-1"
+                    >Age<span class="text-red-500">*</span></label
+                  >
                   <input
                     type="number"
                     placeholder="Enter your age"
@@ -81,7 +85,9 @@
                   />
                 </div>
                 <div class="mb-4">
-                  <label class="block font-medium mb-1">Favorite IDE<span class="text-red-500">*</span></label>
+                  <label class="block font-medium mb-1"
+                    >Your Favorite IDE?<span class="text-red-500">*</span></label
+                  >
                   <select
                     id="favoriteIDE"
                     class="w-full border rounded py-2 px-3"
@@ -96,7 +102,9 @@
                 </div>
                 <div class="mb-4">
                   <label class="block font-medium mb-1"
-                    >How was your summer?<span class="text-red-500">*</span></label
+                    >How was your summer?<span class="text-red-500"
+                      >*</span
+                    ></label
                   >
                   <div class="space-y-2">
                     <label class="block">
@@ -143,14 +151,16 @@
                 </div>
                 <div class="mb-4">
                   <label class="block font-medium mb-1"
-                    >Languages and Frameworks known<span class="text-red-500">*</span></label
+                    >Languages and Frameworks known (Check all that apply)<span class="text-red-500"
+                      >*</span
+                    ></label
                   >
                   <div class="space-y-2">
                     <label class="block">
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="c"
+                        value="C"
                         class="mr-2"
                       />
                       C
@@ -159,7 +169,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="cpp"
+                        value="C++"
                         class="mr-2"
                       />
                       C++
@@ -168,7 +178,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="csharp"
+                        value="C#"
                         class="mr-2"
                       />
                       C#
@@ -177,7 +187,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="java"
+                        value="Java"
                         class="mr-2"
                       />
                       Java
@@ -186,7 +196,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="javascript"
+                        value="JavaScript"
                         class="mr-2"
                       />
                       JavaScript
@@ -195,7 +205,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="react"
+                        value="React"
                         class="mr-2"
                       />
                       React
@@ -204,7 +214,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="angular"
+                        value="Angular"
                         class="mr-2"
                       />
                       Angular
@@ -213,7 +223,7 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="django"
+                        value="Django"
                         class="mr-2"
                       />
                       Django
@@ -222,12 +232,25 @@
                       <input
                         type="checkbox"
                         name="languages_frameworks"
-                        value="spring"
+                        value="Spring"
                         class="mr-2"
                       />
                       Spring
                     </label>
                   </div>
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="message"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Any comments or suggestions</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Write your thoughts here..."
+                  ></textarea>
                 </div>
                 <!-- Button for form Submission -->
                 <button class="btn-grad" type="submit">Submit</button>
@@ -248,8 +271,8 @@
         <button class="btn-grad mt-4" id="closeModal">Close</button>
       </div>
     </div>
-<!-- Modal HTML end -->
-<!-- Modal javascript start -->
+    <!-- Modal HTML end -->
+    <!-- Modal javascript start -->
     <script>
       const form = document.getElementById("reviewForm");
       const modal = document.getElementById("modal");
@@ -274,7 +297,7 @@
         )
           .map((input) => input.value)
           .join(", ");
-
+          const  message= document.getElementById("message").value;
         // Build modal content
         const content = `
           <p><strong>Name:</strong> ${name}</p>
@@ -283,6 +306,7 @@
           <p><strong>Favorite IDE:</strong> ${favoriteIDE}</p>
           <p><strong>Summer Experience:</strong> ${summerExperience}</p>
           <p><strong>Languages and Frameworks:</strong> ${languagesFrameworks}</p>
+          <p><strong>Any comments or suggestions:</strong> ${message}</p>
         `;
 
         modalContent.innerHTML = content;

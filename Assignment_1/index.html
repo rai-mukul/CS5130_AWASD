@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>App Selection Page</title>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <h1 class="text-2xl font-semibold mb-4">Welcome to the App Selection Page</h1>
+        
+        <p class="text-gray-700 mb-4">Choose an app to use:</p>
+        
+       
+        
+        <!-- Button to go to the  Weekend Scheduler -->
+        <form action="/Weekend_Scheduler/index.php" method="GET" class="pb-10">
+            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded mt-4">
+                Weekend Scheduler
+            </button>
+        </form>
+         <!-- Button to go to the HTML Generator by PHP -->
+         <form action="/HTML_List_Generator_APP/control_view.php" method="GET">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+                HTML Generator by PHP
+            </button>
+        </form>
+    </div>
+</body>
+</html>

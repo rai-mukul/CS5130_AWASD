@@ -10,38 +10,48 @@
 
 <body class="bg-gray-50 p-10">
 
-    <?php
-    include 'pdo.php';
+<?php
+include 'pdo.php';
 
-    $errorMessage = '';
+$errorMessage = '';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and validate user input for malicious code inside the input field
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $password = $_POST['password'];
 
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
+    // Validate username and password 
+    if (empty($username) || empty($password)) {
+        $errorMessage = "Username and password are required.";
+    } else {
+        try {
+            // I am using prepared statements to prevent sql attacks.
+            $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
+            $stmt->bindParam(':username', $username);
+            $stmt->execute();
 
-        if ($stmt->rowCount() == 1) {
-            $row = $stmt->fetch();
-            if (password_verify($password, $row['password'])) {
-                $successMessage = "Password matches!";
+            if ($stmt->rowCount() == 1) {
+                $row = $stmt->fetch();
+                if (password_verify($password, $row['password'])) {
+                    $successMessage = "Password matches!!";
+                } else {
+                    $errorMessage = "Username or password is not correct!!";
+                }
             } else {
-                $errorMessage = "Username or password is not correct!";
+                $errorMessage = "Username or password is not correct!!";
             }
-        } else {
-            $errorMessage = "Username or password is not correct!";
+        } catch (PDOException $e) {
+            $errorMessage = "An error occurred: " . $e->getMessage();
         }
     }
-    ?>
-    
-        <h2 class="text-2xl text-center my-5 font-bold tracking-tight sm:text-3xl">User Login</h2>
-    
+}
+?>
+
+    <h2 class="text-2xl text-center my-5 font-bold tracking-tight sm:text-3xl">User Login</h2>
     <div
         class="max-w-xl p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Login to Your Account</h5>  
-        <!-- HTML form for login -->
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Login to Your Account</h5>
+        <!-- HTML code form for login form-->
         <form action="login.php" method="POST" class="mb-4">
             <label for="username" class="block mb-2">Username (email):</label>
             <input type="text" name="username" id="username"
@@ -52,7 +62,7 @@
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
         </form>
 
-        <!-- Display success and error messages -->
+        <!-- show alerts for success and error responses from server -->
         <?php if (!empty($errorMessage)): ?>
             <div class="text-red-500 mb-4">
                 <?php echo $errorMessage; ?>

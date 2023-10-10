@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             // I am using prepared statements to prevent sql attacks.
-            $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
+            $stmt = $conn->prepare("SELECT * FROM accounts WHERE username = :username");
             $stmt->bindParam(':username', $username);
             $stmt->execute();
 

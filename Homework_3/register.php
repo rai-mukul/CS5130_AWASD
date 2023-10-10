@@ -32,14 +32,14 @@
 
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
+            $stmt = $conn->prepare("SELECT * FROM accounts WHERE username = :username");
             $stmt->bindParam(':username', $username);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
                 $errorAlert = "Username already exists, please choose another!";
             } else {
-                $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+                $stmt = $conn->prepare("INSERT INTO accounts (username, password) VALUES (:username, :password)");
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':password', $hashed_password);
                 $stmt->execute();
